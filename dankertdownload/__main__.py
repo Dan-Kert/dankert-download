@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-
-# Execute with
-# $ python3 -m dankert_install
-
 import sys
 
 if __package__ is None and not getattr(sys, 'frozen', False):

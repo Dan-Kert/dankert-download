@@ -1,11 +1,16 @@
 import sys
-
 from PyInstaller.utils.hooks import collect_submodules, collect_data_files
 
 
 def pycryptodome_module():
+    """
+    Возвращает имя криптомодуля для hiddenimports.
+    Предпочтительно использовать Cryptodome (pycryptodomex).
+    Crypto (pycrypto) устарел и не рекомендуется.
+    """
     try:
         import Cryptodome  # noqa: F401
+        return 'Cryptodome'
     except ImportError:
         try:
             import Crypto  # noqa: F401
@@ -14,8 +19,8 @@ def pycryptodome_module():
             return 'Crypto'
         except ImportError:
             pass
+    # Если ничего не найдено, возвращаем Cryptodome для PyInstaller
     return 'Cryptodome'
-
 
 def get_hidden_imports():
     yield from ('dankert_install.compat._legacy', 'dankert_install.compat._deprecated')
