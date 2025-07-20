@@ -1,6 +1,6 @@
 # dankert_download
 
-![logo](https://raw.githubusercontent.com/Dan-Kert/dankert-download/main/logo.png)
+![logo](https://raw.githubusercontent.com/Dan-Kert/dankert-download/refs/heads/main/devscripts/logo.ico)
 
 ## ⚡️ dankert_download — мощный загрузчик видео и аудио
 
