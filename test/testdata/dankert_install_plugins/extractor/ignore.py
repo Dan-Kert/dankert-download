@@ -1,4 +1,4 @@
-from dankert_install.extractor.common import InfoExtractor
+from dankert_download.extractor.common import InfoExtractor
 
 
 class IgnoreNotInAllPluginIE(InfoExtractor):

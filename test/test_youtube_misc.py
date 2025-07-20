@@ -8,7 +8,7 @@ import unittest
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-from dankert_install.extractor import YoutubeIE
+from dankert_download.extractor import YoutubeIE
 
 
 class TestYoutubeMisc(unittest.TestCase):

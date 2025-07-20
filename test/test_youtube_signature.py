@@ -14,8 +14,8 @@ import string
 import urllib.request
 
 from test.helper import FakeYDL, is_download_test
-from dankert_install.extractor import YoutubeIE
-from dankert_install.jsinterp import JSInterpreter
+from dankert_download.extractor import YoutubeIE
+from dankert_download.jsinterp import JSInterpreter
 
 _SIG_TESTS = [
     (

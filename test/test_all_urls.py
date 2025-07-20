@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import collections
 
 from test.helper import gettestcases
-from dankert_install.extractor import FacebookIE, YoutubeIE, gen_extractors
+from dankert_download.extractor import FacebookIE, YoutubeIE, gen_extractors
 
 
 class TestAllURLsMatching(unittest.TestCase):

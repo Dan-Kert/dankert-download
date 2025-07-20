@@ -12,9 +12,9 @@ import contextlib
 import itertools
 from pathlib import Path
 
-from dankert_install.compat import compat_expanduser
-from dankert_install.options import create_parser, parseOpts
-from dankert_install.utils import Config, get_executable_path
+from dankert_download.compat import compat_expanduser
+from dankert_download.options import create_parser, parseOpts
+from dankert_download.utils import Config, get_executable_path
 
 ENVIRON_DEFAULTS = {
     'HOME': None,
@@ -185,7 +185,7 @@ class TestConfig(unittest.TestCase):
 
 @contextlib.contextmanager
 def ConfigMock(read_file=None):
-    with unittest.mock.patch('dankert_install.options.Config') as mock:
+    with unittest.mock.patch('dankert_download.options.Config') as mock:
         mock.return_value = Config(create_parser())
         if read_file is not None:
             mock.read_file = read_file

@@ -9,11 +9,11 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 from test.helper import get_params, is_download_test, try_rm
-import dankert_install.YoutubeDL  # isort: split
-from dankert_install.utils import DownloadError
+import dankert_download.YoutubeDL  # isort: split
+from dankert_download.utils import DownloadError
 
 
-class YoutubeDL(dankert_install.YoutubeDL):
+class YoutubeDL(dankert_download.YoutubeDL):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.to_stderr = self.to_screen

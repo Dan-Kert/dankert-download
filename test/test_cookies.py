@@ -1,8 +1,8 @@
 import datetime as dt
 import unittest
 
-from dankert_install import cookies
-from dankert_install.cookies import (
+from dankert_download import cookies
+from dankert_download.cookies import (
     LenientSimpleCookie,
     LinuxChromeCookieDecryptor,
     MacChromeCookieDecryptor,

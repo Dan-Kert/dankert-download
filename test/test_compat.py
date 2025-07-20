@@ -10,10 +10,10 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import struct
 
-from dankert_install import compat
-from dankert_install.compat import urllib  # isort: split
-from dankert_install.compat import compat_etree_fromstring, compat_expanduser
-from dankert_install.compat.urllib.request import getproxies
+from dankert_download import compat
+from dankert_download.compat import urllib  # isort: split
+from dankert_download.compat import compat_etree_fromstring, compat_expanduser
+from dankert_download.compat.urllib.request import getproxies
 
 
 class TestCompat(unittest.TestCase):

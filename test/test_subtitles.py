@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 from test.helper import FakeYDL, is_download_test, md5
-from dankert_install.extractor import (
+from dankert_download.extractor import (
     NPOIE,
     NRKTVIE,
     PBSIE,

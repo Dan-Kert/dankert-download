@@ -9,10 +9,10 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 from test.helper import FakeYDL, report_warning
-from dankert_install.update import UpdateInfo, Updater
+from dankert_download.update import UpdateInfo, Updater
 
 
-# XXX: Keep in sync with dankert_install.update.UPDATE_SOURCES
+# XXX: Keep in sync with dankert_download.update.UPDATE_SOURCES
 TEST_UPDATE_SOURCES = {
     'stable': 'dankert-download/dankert-download',
     'nightly': 'dankert-download/dankert-download-nightly-builds',

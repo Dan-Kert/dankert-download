@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import base64
 
-from dankert_install.aes import (
+from dankert_download.aes import (
     aes_cbc_decrypt,
     aes_cbc_decrypt_bytes,
     aes_cbc_encrypt,
@@ -26,7 +26,7 @@ from dankert_install.aes import (
     key_expansion,
     pad_block,
 )
-from dankert_install.dependencies import Cryptodome
+from dankert_download.dependencies import Cryptodome
 
 # the encrypted data can be generate with 'devscripts/generate_aes_testdata.py'
 

@@ -19,11 +19,11 @@ import unittest.mock
 import warnings
 import xml.etree.ElementTree
 
-from dankert_install.compat import (
+from dankert_download.compat import (
     compat_etree_fromstring,
     compat_HTMLParseError,
 )
-from dankert_install.utils import (
+from dankert_download.utils import (
     Config,
     DateRange,
     ExtractorError,
@@ -129,8 +129,8 @@ from dankert_install.utils import (
     xpath_text,
     xpath_with_ns,
 )
-from dankert_install.utils._utils import _UnsafeExtensionError
-from dankert_install.utils.networking import (
+from dankert_download.utils._utils import _UnsafeExtensionError
+from dankert_download.utils.networking import (
     HTTPHeaderDict,
     escape_rfc3986,
     normalize_url,
@@ -286,8 +286,8 @@ class TestUtil(unittest.TestCase):
         def env(var):
             return f'%{var}%' if sys.platform == 'win32' else f'${var}'
 
-        os.environ['dankert_install_EXPATH_PATH'] = 'expanded'
-        self.assertEqual(expand_path(env('dankert_install_EXPATH_PATH')), 'expanded')
+        os.environ['dankert_download_EXPATH_PATH'] = 'expanded'
+        self.assertEqual(expand_path(env('dankert_download_EXPATH_PATH')), 'expanded')
 
         old_home = os.environ.get('HOME')
         test_str = R'C:\Documents and Settings\тест\Application Data'
@@ -296,7 +296,7 @@ class TestUtil(unittest.TestCase):
             self.assertEqual(expand_path(env('HOME')), os.getenv('HOME'))
             self.assertEqual(expand_path('~'), os.getenv('HOME'))
             self.assertEqual(
-                expand_path('~/{}'.format(env('dankert_install_EXPATH_PATH'))),
+                expand_path('~/{}'.format(env('dankert_download_EXPATH_PATH'))),
                 '{}/expanded'.format(os.getenv('HOME')))
         finally:
             os.environ['HOME'] = old_home or ''

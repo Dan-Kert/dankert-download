@@ -6,7 +6,7 @@ import sys
 
 import pytest
 
-from dankert_install.networking.common import Features, DEFAULT_TIMEOUT
+from dankert_download.networking.common import Features, DEFAULT_TIMEOUT
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -34,9 +34,9 @@ from test.helper import (
     validate_and_send,
     verify_address_availability,
 )
-from dankert_install.cookies import YoutubeDLCookieJar
-from dankert_install.dependencies import brotli, curl_cffi, requests, urllib3
-from dankert_install.networking import (
+from dankert_download.cookies import YoutubeDLCookieJar
+from dankert_download.dependencies import brotli, curl_cffi, requests, urllib3
+from dankert_download.networking import (
     HEADRequest,
     PATCHRequest,
     PUTRequest,
@@ -45,8 +45,8 @@ from dankert_install.networking import (
     RequestHandler,
     Response,
 )
-from dankert_install.networking._urllib import UrllibRH
-from dankert_install.networking.exceptions import (
+from dankert_download.networking._urllib import UrllibRH
+from dankert_download.networking.exceptions import (
     CertificateVerifyError,
     HTTPError,
     IncompleteRead,
@@ -57,13 +57,13 @@ from dankert_install.networking.exceptions import (
     TransportError,
     UnsupportedRequest,
 )
-from dankert_install.networking.impersonate import (
+from dankert_download.networking.impersonate import (
     ImpersonateRequestHandler,
     ImpersonateTarget,
 )
-from dankert_install.utils import YoutubeDLError
-from dankert_install.utils._utils import _YDLLogger as FakeLogger
-from dankert_install.utils.networking import HTTPHeaderDict, std_headers
+from dankert_download.utils import YoutubeDLError
+from dankert_download.utils._utils import _YDLLogger as FakeLogger
+from dankert_download.utils.networking import HTTPHeaderDict, std_headers
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -983,7 +983,7 @@ class TestRequestsRequestHandler(TestRequestHandlerBase):
         from requests.models import Response as RequestsResponse
         from urllib3.response import HTTPResponse as Urllib3Response
 
-        from dankert_install.networking._requests import RequestsResponseAdapter
+        from dankert_download.networking._requests import RequestsResponseAdapter
         requests_res = RequestsResponse()
         requests_res.raw = Urllib3Response(body=b'', status=200)
         res = RequestsResponseAdapter(requests_res)
@@ -1059,7 +1059,7 @@ class TestCurlCFFIRequestHandler(TestRequestHandlerBase):
     def test_response_error_mapping(self, handler, monkeypatch, raised, expected, match):
         import curl_cffi.requests
 
-        from dankert_install.networking._curlcffi import CurlCFFIResponseAdapter
+        from dankert_download.networking._curlcffi import CurlCFFIResponseAdapter
         curl_res = curl_cffi.requests.Response()
         res = CurlCFFIResponseAdapter(curl_res)
 
@@ -1131,7 +1131,7 @@ class TestCurlCFFIRequestHandler(TestRequestHandlerBase):
             def close(self):
                 self.closed = True
 
-        from dankert_install.networking._curlcffi import CurlCFFIResponseReader
+        from dankert_download.networking._curlcffi import CurlCFFIResponseReader
 
         res = CurlCFFIResponseReader(FakeResponse())
         assert res.readable

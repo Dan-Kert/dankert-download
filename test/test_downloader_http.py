@@ -13,9 +13,9 @@ import re
 import threading
 
 from test.helper import http_server_port, try_rm
-from dankert_install import YoutubeDL
-from dankert_install.downloader.http import HttpFD
-from dankert_install.utils._utils import _YDLLogger as FakeLogger
+from dankert_download import YoutubeDL
+from dankert_download.downloader.http import HttpFD
+from dankert_download.utils._utils import _YDLLogger as FakeLogger
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 

@@ -1,4 +1,4 @@
-from dankert_install.extractor.generic import GenericIE
+from dankert_download.extractor.generic import GenericIE
 
 
 class _UnderscoreOverrideGenericIE(GenericIE, plugin_name='underscore-override'):

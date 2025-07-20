@@ -9,8 +9,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 from test.helper import FakeYDL, is_download_test
-from dankert_install.extractor import YoutubeIE, YoutubeTabIE
-from dankert_install.utils import ExtractorError
+from dankert_download.extractor import YoutubeIE, YoutubeTabIE
+from dankert_download.utils import ExtractorError
 
 
 @is_download_test

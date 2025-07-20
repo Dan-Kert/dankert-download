@@ -12,10 +12,10 @@ import http.server
 import threading
 
 from test.helper import FakeYDL, expect_dict, expect_value, http_server_port
-from dankert_install.compat import compat_etree_fromstring
-from dankert_install.extractor import YoutubeIE, get_info_extractor
-from dankert_install.extractor.common import InfoExtractor
-from dankert_install.utils import (
+from dankert_download.compat import compat_etree_fromstring
+from dankert_download.extractor import YoutubeIE, get_info_extractor
+from dankert_download.extractor.common import InfoExtractor
+from dankert_download.utils import (
     ExtractorError,
     RegexNotFoundError,
     encode_data_uri,

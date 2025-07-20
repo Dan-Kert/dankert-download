@@ -17,7 +17,7 @@ class TestVerboseOutput(unittest.TestCase):
     def test_private_info_arg(self):
         outp = subprocess.Popen(
             [
-                sys.executable, 'dankert_install/__main__.py',
+                sys.executable, 'dankert_download/__main__.py',
                 '-v', '--ignore-config',
                 '--username', 'johnsmith@gmail.com',
                 '--password', 'my_secret_password',
@@ -31,7 +31,7 @@ class TestVerboseOutput(unittest.TestCase):
     def test_private_info_shortarg(self):
         outp = subprocess.Popen(
             [
-                sys.executable, 'dankert_install/__main__.py',
+                sys.executable, 'dankert_download/__main__.py',
                 '-v', '--ignore-config',
                 '-u', 'johnsmith@gmail.com',
                 '-p', 'my_secret_password',
@@ -45,7 +45,7 @@ class TestVerboseOutput(unittest.TestCase):
     def test_private_info_eq(self):
         outp = subprocess.Popen(
             [
-                sys.executable, 'dankert_install/__main__.py',
+                sys.executable, 'dankert_download/__main__.py',
                 '-v', '--ignore-config',
                 '--username=johnsmith@gmail.com',
                 '--password=my_secret_password',
@@ -59,7 +59,7 @@ class TestVerboseOutput(unittest.TestCase):
     def test_private_info_shortarg_eq(self):
         outp = subprocess.Popen(
             [
-                sys.executable, 'dankert_install/__main__.py',
+                sys.executable, 'dankert_download/__main__.py',
                 '-v', '--ignore-config',
                 '-u=johnsmith@gmail.com',
                 '-p=my_secret_password',

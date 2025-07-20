@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 from test.helper import FakeYDL, is_download_test
-from dankert_install.extractor import IqiyiIE
+from dankert_download.extractor import IqiyiIE
 
 
 class WarningLogger:

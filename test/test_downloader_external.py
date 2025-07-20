@@ -10,7 +10,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import http.cookiejar
 
 from test.helper import FakeYDL
-from dankert_install.downloader.external import (
+from dankert_download.downloader.external import (
     Aria2cFD,
     AxelFD,
     CurlFD,

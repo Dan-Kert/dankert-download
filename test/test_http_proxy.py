@@ -15,9 +15,9 @@ import pytest
 from test.helper import http_server_port, verify_address_availability
 from test.test_networking import TEST_DIR
 from test.test_socks import IPv6ThreadingTCPServer
-from dankert_install.dependencies import urllib3
-from dankert_install.networking import Request
-from dankert_install.networking.exceptions import HTTPError, ProxyError, SSLError
+from dankert_download.dependencies import urllib3
+from dankert_download.networking import Request
+from dankert_download.networking.exceptions import HTTPError, ProxyError, SSLError
 
 
 class HTTPProxyAuthMixin:

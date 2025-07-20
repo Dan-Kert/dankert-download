@@ -10,7 +10,7 @@ TEST_DATA_DIR = Path(os.path.dirname(os.path.abspath(__file__)), 'testdata')
 sys.path.append(str(TEST_DATA_DIR))
 importlib.invalidate_caches()
 
-from dankert_install.plugins import (
+from dankert_download.plugins import (
     PACKAGE_NAME,
     PluginSpec,
     directories,
@@ -19,7 +19,7 @@ from dankert_install.plugins import (
     register_plugin_spec,
 )
 
-from dankert_install.globals import (
+from dankert_download.globals import (
     extractors,
     postprocessors,
     plugin_dirs,
@@ -169,7 +169,7 @@ class TestPlugins(unittest.TestCase):
     def test_extractor_override_plugin(self):
         load_plugins(EXTRACTOR_PLUGIN_SPEC)
 
-        from dankert_install.extractor.generic import GenericIE
+        from dankert_download.extractor.generic import GenericIE
 
         self.assertEqual(GenericIE.TEST_FIELD, 'override')
         self.assertEqual(GenericIE.SECONDARY_TEST_FIELD, 'underscore-override')
@@ -178,7 +178,7 @@ class TestPlugins(unittest.TestCase):
         importlib.invalidate_caches()
         #  test that loading a second time doesn't wrap a second time
         load_plugins(EXTRACTOR_PLUGIN_SPEC)
-        from dankert_install.extractor.generic import GenericIE
+        from dankert_download.extractor.generic import GenericIE
         self.assertEqual(GenericIE.IE_NAME, 'generic+override+underscore-override')
 
     def test_load_all_plugin_types(self):

@@ -2,11 +2,11 @@ import threading
 import time
 from collections import OrderedDict
 import pytest
-from dankert_install.extractor.youtube.pot._provider import IEContentProvider, BuiltinIEContentProvider
-from dankert_install.utils import bug_reports_message
-from dankert_install.extractor.youtube.pot._builtin.memory_cache import MemoryLRUPCP, memorylru_preference, initialize_global_cache
-from dankert_install.version import __version__
-from dankert_install.extractor.youtube.pot._registry import _pot_cache_providers, _pot_memory_cache
+from dankert_download.extractor.youtube.pot._provider import IEContentProvider, BuiltinIEContentProvider
+from dankert_download.utils import bug_reports_message
+from dankert_download.extractor.youtube.pot._builtin.memory_cache import MemoryLRUPCP, memorylru_preference, initialize_global_cache
+from dankert_download.version import __version__
+from dankert_download.extractor.youtube.pot._registry import _pot_cache_providers, _pot_memory_cache
 
 
 class TestMemoryLRUPCS:

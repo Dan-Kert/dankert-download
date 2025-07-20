@@ -8,8 +8,8 @@ import unittest
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
-from dankert_install.extractor import gen_extractor_classes
-from dankert_install.extractor.common import InfoExtractor
+from dankert_download.extractor import gen_extractor_classes
+from dankert_download.extractor.common import InfoExtractor
 
 NO_LOGIN = InfoExtractor._perform_login
 

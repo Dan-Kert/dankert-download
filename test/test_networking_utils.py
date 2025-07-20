@@ -12,22 +12,22 @@ import io
 import random
 import ssl
 
-from dankert_install.cookies import YoutubeDLCookieJar
-from dankert_install.dependencies import certifi
-from dankert_install.networking import Response
-from dankert_install.networking._helper import (
+from dankert_download.cookies import YoutubeDLCookieJar
+from dankert_download.dependencies import certifi
+from dankert_download.networking import Response
+from dankert_download.networking._helper import (
     InstanceStoreMixin,
     add_accept_encoding_header,
     get_redirect_method,
     make_socks_proxy_opts,
     ssl_load_certs,
 )
-from dankert_install.networking.exceptions import (
+from dankert_download.networking.exceptions import (
     HTTPError,
     IncompleteRead,
 )
-from dankert_install.socks import ProxyType
-from dankert_install.utils.networking import HTTPHeaderDict, select_proxy
+from dankert_download.socks import ProxyType
+from dankert_download.utils.networking import HTTPHeaderDict, select_proxy
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 

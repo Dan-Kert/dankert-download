@@ -13,7 +13,7 @@ import math
 import re
 import unittest
 
-from dankert_install.utils.jslib import devalue
+from dankert_download.utils.jslib import devalue
 
 
 TEST_CASES_EQUALS = [{

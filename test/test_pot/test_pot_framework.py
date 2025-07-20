@@ -1,26 +1,26 @@
 import pytest
 
-from dankert_install.extractor.youtube.pot._provider import IEContentProvider
-from dankert_install.cookies import YoutubeDLCookieJar
-from dankert_install.utils.networking import HTTPHeaderDict
-from dankert_install.extractor.youtube.pot.provider import (
+from dankert_download.extractor.youtube.pot._provider import IEContentProvider
+from dankert_download.cookies import YoutubeDLCookieJar
+from dankert_download.utils.networking import HTTPHeaderDict
+from dankert_download.extractor.youtube.pot.provider import (
     PoTokenRequest,
     PoTokenContext,
     ExternalRequestFeature,
 
 )
 
-from dankert_install.extractor.youtube.pot.cache import (
+from dankert_download.extractor.youtube.pot.cache import (
     PoTokenCacheProvider,
     PoTokenCacheSpec,
     PoTokenCacheSpecProvider,
     CacheProviderWritePolicy,
 )
 
-import dankert_install.extractor.youtube.pot.cache as cache
+import dankert_download.extractor.youtube.pot.cache as cache
 
-from dankert_install.networking import Request
-from dankert_install.extractor.youtube.pot.provider import (
+from dankert_download.networking import Request
+from dankert_download.extractor.youtube.pot.provider import (
     PoTokenResponse,
     PoTokenProvider,
     PoTokenProviderRejectedRequest,
@@ -29,7 +29,7 @@ from dankert_install.extractor.youtube.pot.provider import (
     register_preference,
 )
 
-from dankert_install.extractor.youtube.pot._registry import _pot_providers, _ptp_preferences, _pot_pcs_providers, _pot_cache_providers, _pot_cache_provider_preferences
+from dankert_download.extractor.youtube.pot._registry import _pot_providers, _ptp_preferences, _pot_pcs_providers, _pot_cache_providers, _pot_cache_provider_preferences
 
 
 class ExamplePTP(PoTokenProvider):

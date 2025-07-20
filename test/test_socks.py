@@ -26,9 +26,9 @@ from socketserver import (
 )
 
 from test.helper import http_server_port, verify_address_availability
-from dankert_install.networking import Request
-from dankert_install.networking.exceptions import ProxyError, TransportError
-from dankert_install.socks import (
+from dankert_download.networking import Request
+from dankert_download.networking.exceptions import ProxyError, TransportError
+from dankert_download.socks import (
     SOCKS4_REPLY_VERSION,
     SOCKS4_VERSION,
     SOCKS5_USER_AUTH_SUCCESS,
@@ -212,9 +212,9 @@ class SocksHTTPTestRequestHandler(http.server.BaseHTTPRequestHandler, SocksTestR
 
 class SocksWebSocketTestRequestHandler(SocksTestRequestHandler):
     def handle(self):
-        import websockets.sync.server
+        import websockets.sync
         protocol = websockets.ServerProtocol()
-        connection = websockets.sync.server.ServerConnection(socket=self.request, protocol=protocol, close_timeout=0)
+        connection = websockets.sync.ServerConnection(socket=self.request, protocol=protocol, close_timeout=0)
         connection.handshake()
         for message in connection:
             if message == 'socks_info':

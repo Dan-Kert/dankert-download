@@ -4,7 +4,7 @@ import xml.etree.ElementTree
 
 import pytest
 
-from dankert_install.utils import (
+from dankert_download.utils import (
     ExtractorError,
     determine_ext,
     dict_get,
@@ -12,7 +12,7 @@ from dankert_install.utils import (
     join_nonempty,
     str_or_none,
 )
-from dankert_install.utils.traversal import (
+from dankert_download.utils.traversal import (
     find_element,
     find_elements,
     require,

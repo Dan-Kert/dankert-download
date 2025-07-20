@@ -8,7 +8,7 @@ import time
 import pytest
 
 from test.helper import verify_address_availability
-from dankert_install.networking.common import Features, DEFAULT_TIMEOUT
+from dankert_download.networking.common import Features, DEFAULT_TIMEOUT
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -20,11 +20,11 @@ import random
 import ssl
 import threading
 
-from dankert_install import socks, traverse_obj
-from dankert_install.cookies import YoutubeDLCookieJar
-from dankert_install.dependencies import websockets
-from dankert_install.networking import Request
-from dankert_install.networking.exceptions import (
+from dankert_download import socks, traverse_obj
+from dankert_download.cookies import YoutubeDLCookieJar
+from dankert_download.dependencies import websockets
+from dankert_download.networking import Request
+from dankert_download.networking.exceptions import (
     CertificateVerifyError,
     HTTPError,
     ProxyError,
@@ -32,7 +32,7 @@ from dankert_install.networking.exceptions import (
     SSLError,
     TransportError,
 )
-from dankert_install.utils.networking import HTTPHeaderDict
+from dankert_download.utils.networking import HTTPHeaderDict
 
 TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -461,11 +461,11 @@ class TestWebsocketsRequestHandler:
     def test_request_error_mapping(self, handler, monkeypatch, raised, expected):
         import websockets.sync.client
 
-        import dankert_install.networking._websockets
+        import dankert_download.networking._websockets
         with handler() as rh:
             def fake_connect(*args, **kwargs):
                 raise raised()
-            monkeypatch.setattr(dankert_install.networking._websockets, 'create_connection', lambda *args, **kwargs: None)
+            monkeypatch.setattr(dankert_download.networking._websockets, 'create_connection', lambda *args, **kwargs: None)
             monkeypatch.setattr(websockets.sync.client, 'connect', fake_connect)
             with pytest.raises(expected) as exc_info:
                 rh.send(Request('ws://fake-url'))
@@ -482,7 +482,7 @@ class TestWebsocketsRequestHandler:
         (lambda: websockets.exceptions.WebSocketException(), TransportError, None),
     ])
     def test_ws_send_error_mapping(self, handler, monkeypatch, raised, expected, match):
-        from dankert_install.networking._websockets import WebsocketsResponseAdapter
+        from dankert_download.networking._websockets import WebsocketsResponseAdapter
         ws = WebsocketsResponseAdapter(create_fake_ws_connection(raised), url='ws://fake-url')
         with pytest.raises(expected, match=match) as exc_info:
             ws.send('test')
@@ -498,7 +498,7 @@ class TestWebsocketsRequestHandler:
         (lambda: websockets.exceptions.WebSocketException(), TransportError, None),
     ])
     def test_ws_recv_error_mapping(self, handler, monkeypatch, raised, expected, match):
-        from dankert_install.networking._websockets import WebsocketsResponseAdapter
+        from dankert_download.networking._websockets import WebsocketsResponseAdapter
         ws = WebsocketsResponseAdapter(create_fake_ws_connection(raised), url='ws://fake-url')
         with pytest.raises(expected, match=match) as exc_info:
             ws.recv()

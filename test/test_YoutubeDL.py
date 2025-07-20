@@ -6,7 +6,7 @@ import sys
 import unittest
 from unittest.mock import patch
 
-from dankert_install.globals import all_plugins_loaded
+from dankert_download.globals import all_plugins_loaded
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -16,18 +16,18 @@ import copy
 import json
 
 from test.helper import FakeYDL, assertRegexpMatches, try_rm
-from dankert_install import YoutubeDL
-from dankert_install.extractor import YoutubeIE
-from dankert_install.extractor.common import InfoExtractor
-from dankert_install.postprocessor.common import PostProcessor
-from dankert_install.utils import (
+from dankert_download import YoutubeDL
+from dankert_download.extractor import YoutubeIE
+from dankert_download.extractor.common import InfoExtractor
+from dankert_download.postprocessor.common import PostProcessor
+from dankert_download.utils import (
     ExtractorError,
     LazyList,
     OnDemandPagedList,
     int_or_none,
     match_filter_func,
 )
-from dankert_install.utils.traversal import traverse_obj
+from dankert_download.utils.traversal import traverse_obj
 
 TEST_URL = 'http://localhost/sample.mp4'
 
@@ -576,7 +576,7 @@ class TestFormatSelection(unittest.TestCase):
         downloaded_ids = [info['format_id'] for info in ydl.downloaded_info_dicts]
         self.assertEqual(downloaded_ids, ['E', 'D', 'C', 'B'])
 
-    @patch('dankert_install.postprocessor.ffmpeg.FFmpegMergerPP.available', False)
+    @patch('dankert_download.postprocessor.ffmpeg.FFmpegMergerPP.available', False)
     def test_default_format_spec_without_ffmpeg(self):
         ydl = YDL({})
         self.assertEqual(ydl._default_format_spec({}), 'best/bestvideo+bestaudio')
@@ -597,8 +597,8 @@ class TestFormatSelection(unittest.TestCase):
         self.assertEqual(ydl._default_format_spec({}), 'best/bestvideo+bestaudio')
         self.assertEqual(ydl._default_format_spec({'is_live': True}), 'best/bestvideo+bestaudio')
 
-    @patch('dankert_install.postprocessor.ffmpeg.FFmpegMergerPP.available', True)
-    @patch('dankert_install.postprocessor.ffmpeg.FFmpegMergerPP.can_merge', lambda _: True)
+    @patch('dankert_download.postprocessor.ffmpeg.FFmpegMergerPP.available', True)
+    @patch('dankert_download.postprocessor.ffmpeg.FFmpegMergerPP.can_merge', lambda _: True)
     def test_default_format_spec_with_ffmpeg(self):
         ydl = YDL({})
         self.assertEqual(ydl._default_format_spec({}), 'bestvideo*+bestaudio/best')
@@ -935,8 +935,8 @@ class TestYoutubeDL(unittest.TestCase):
         # test('%(foo|)s', ('', '_'))  # FIXME: ?
 
         # Environment variable expansion for prepare_filename
-        os.environ['__dankert_install_var'] = 'expanded'
-        envvar = '%__dankert_install_var%' if os.name == 'nt' else '$__dankert_install_var'
+        os.environ['__dankert_download_var'] = 'expanded'
+        envvar = '%__dankert_download_var%' if os.name == 'nt' else '$__dankert_download_var'
         test(envvar, (envvar, 'expanded'))
         if os.name == 'nt':
             test('%s%', ('%s%', '%s%'))

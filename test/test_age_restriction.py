@@ -9,8 +9,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 from test.helper import is_download_test, try_rm
-from dankert_install import YoutubeDL
-from dankert_install.utils import DownloadError
+from dankert_download import YoutubeDL
+from dankert_download.utils import DownloadError
 
 
 def _download_restricted(url, filename, age):

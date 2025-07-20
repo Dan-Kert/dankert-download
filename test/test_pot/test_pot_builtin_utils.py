@@ -1,10 +1,10 @@
 import pytest
-from dankert_install.extractor.youtube.pot.provider import (
+from dankert_download.extractor.youtube.pot.provider import (
     PoTokenContext,
 
 )
 
-from dankert_install.extractor.youtube.pot.utils import get_webpo_content_binding, ContentBindingType
+from dankert_download.extractor.youtube.pot.utils import get_webpo_content_binding, ContentBindingType
 
 
 class TestGetWebPoContentBinding:

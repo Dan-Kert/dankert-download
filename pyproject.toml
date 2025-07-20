@@ -1,3 +1,12 @@
-[build-system]
-requires = ["setuptools>=61.0"]
-build-backend = "setuptools.build_meta"
+[project]
+name = "dankert-download"
+version = "0.1.0"
+description = "Мощный загрузчик видео от DanKert, альтернатива yt-dlp"
+authors = [{name = "DanKert"}]
+dependencies = [
+    "requests"
+]
+requires-python = ">=3.7"
+
+[project.scripts]
+dankert_download = "dankert_download.__main__:main"

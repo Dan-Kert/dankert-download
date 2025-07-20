@@ -7,9 +7,9 @@ import ssl
 import sys
 import types
 
-import dankert_install.extractor
-from dankert_install import YoutubeDL
-from dankert_install.utils import preferredencoding, try_call, write_string, find_available_port
+import dankert_download.extractor
+from dankert_download import YoutubeDL
+from dankert_download.utils import preferredencoding, try_call, write_string, find_available_port
 
 if 'pytest' in sys.modules:
     import pytest
@@ -87,12 +87,12 @@ class FakeYDL(YoutubeDL):
 
 
 def gettestcases(include_onlymatching=False):
-    for ie in dankert_install.extractor.gen_extractors():
+    for ie in dankert_download.extractor.gen_extractors():
         yield from ie.get_testcases(include_onlymatching)
 
 
 def getwebpagetestcases():
-    for ie in dankert_install.extractor.gen_extractors():
+    for ie in dankert_download.extractor.gen_extractors():
         for tc in ie.get_webpage_testcases():
             tc.setdefault('add_ie', []).append('Generic')
             yield tc

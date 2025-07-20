@@ -1,4 +1,4 @@
-from dankert_install.postprocessor.common import PostProcessor
+from dankert_download.postprocessor.common import PostProcessor
 
 
 class NormalPluginPP(PostProcessor):

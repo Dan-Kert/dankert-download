@@ -11,14 +11,14 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 import contextlib
 import subprocess
 
-from dankert_install.utils import Popen
+from dankert_download.utils import Popen
 
 rootDir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LAZY_EXTRACTORS = 'dankert_install/extractor/lazy_extractors.py'
+LAZY_EXTRACTORS = 'dankert_download/extractor/lazy_extractors.py'
 
 
 class TestExecution(unittest.TestCase):
-    def run_dankert_install(self, exe=(sys.executable, 'dankert_install/__main__.py'), opts=('--version', )):
+    def run_dankert_download(self, exe=(sys.executable, 'dankert_download/__main__.py'), opts=('--version', )):
         stdout, stderr, returncode = Popen.run(
             [*exe, '--ignore-config', *opts], cwd=rootDir, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         print(stderr, file=sys.stderr)
@@ -26,16 +26,16 @@ class TestExecution(unittest.TestCase):
         return stdout.strip(), stderr.strip()
 
     def test_main_exec(self):
-        self.run_dankert_install()
+        self.run_dankert_download()
 
     def test_import(self):
-        self.run_dankert_install(exe=(sys.executable, '-c', 'import dankert_install'))
+        self.run_dankert_download(exe=(sys.executable, '-c', 'import dankert_download'))
 
     def test_module_exec(self):
-        self.run_dankert_install(exe=(sys.executable, '-m', 'dankert_install'))
+        self.run_dankert_download(exe=(sys.executable, '-m', 'dankert_download'))
 
     def test_cmdline_umlauts(self):
-        _, stderr = self.run_dankert_install(opts=('ä', '--version'))
+        _, stderr = self.run_dankert_download(opts=('ä', '--version'))
         self.assertFalse(stderr)
 
     def test_lazy_extractors(self):
@@ -44,7 +44,7 @@ class TestExecution(unittest.TestCase):
                                   cwd=rootDir, stdout=subprocess.DEVNULL)
             self.assertTrue(os.path.exists(LAZY_EXTRACTORS))
 
-            _, stderr = self.run_dankert_install(opts=('-s', 'test:'))
+            _, stderr = self.run_dankert_download(opts=('-s', 'test:'))
             # `MIN_RECOMMENDED` emits a deprecated feature warning for deprecated Python versions
             if stderr and stderr.startswith('Deprecated Feature: Support for Python'):
                 stderr = ''

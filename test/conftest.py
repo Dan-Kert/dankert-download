@@ -2,9 +2,9 @@ import inspect
 
 import pytest
 
-from dankert_install.networking import RequestHandler
-from dankert_install.networking.common import _REQUEST_HANDLERS
-from dankert_install.utils._utils import _YDLLogger as FakeLogger
+from dankert_download.networking import RequestHandler
+from dankert_download.networking.common import _REQUEST_HANDLERS
+from dankert_download.utils._utils import _YDLLogger as FakeLogger
 
 
 @pytest.fixture

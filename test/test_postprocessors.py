@@ -10,9 +10,9 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import subprocess
 
-from dankert_install import YoutubeDL
-from dankert_install.utils import shell_quote
-from dankert_install.postprocessor import (
+from dankert_download import YoutubeDL
+from dankert_download.utils import shell_quote
+from dankert_download.postprocessor import (
     ExecPP,
     FFmpegThumbnailsConvertorPP,
     MetadataFromFieldPP,

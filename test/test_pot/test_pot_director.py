@@ -7,15 +7,15 @@ import json
 import time
 import pytest
 
-from dankert_install.extractor.youtube.pot._provider import BuiltinIEContentProvider, IEContentProvider
+from dankert_download.extractor.youtube.pot._provider import BuiltinIEContentProvider, IEContentProvider
 
-from dankert_install.extractor.youtube.pot.provider import (
+from dankert_download.extractor.youtube.pot.provider import (
     PoTokenRequest,
     PoTokenContext,
     PoTokenProviderError,
     PoTokenProviderRejectedRequest,
 )
-from dankert_install.extractor.youtube.pot._director import (
+from dankert_download.extractor.youtube.pot._director import (
     PoTokenCache,
     validate_cache_spec,
     clean_pot,
@@ -24,7 +24,7 @@ from dankert_install.extractor.youtube.pot._director import (
     provider_display_list,
 )
 
-from dankert_install.extractor.youtube.pot.cache import (
+from dankert_download.extractor.youtube.pot.cache import (
     PoTokenCacheSpec,
     PoTokenCacheSpecProvider,
     PoTokenCacheProvider,
@@ -33,7 +33,7 @@ from dankert_install.extractor.youtube.pot.cache import (
 )
 
 
-from dankert_install.extractor.youtube.pot.provider import (
+from dankert_download.extractor.youtube.pot.provider import (
     PoTokenResponse,
     PoTokenProvider,
 )

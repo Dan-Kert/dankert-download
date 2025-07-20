@@ -2,12 +2,12 @@ import collections
 
 import pytest
 
-from dankert_install import YoutubeDL
-from dankert_install.cookies import YoutubeDLCookieJar
-from dankert_install.extractor.common import InfoExtractor
-from dankert_install.extractor.youtube.pot._provider import IEContentProviderLogger
-from dankert_install.extractor.youtube.pot.provider import PoTokenRequest, PoTokenContext
-from dankert_install.utils.networking import HTTPHeaderDict
+from dankert_download import YoutubeDL
+from dankert_download.cookies import YoutubeDLCookieJar
+from dankert_download.extractor.common import InfoExtractor
+from dankert_download.extractor.youtube.pot._provider import IEContentProviderLogger
+from dankert_download.extractor.youtube.pot.provider import PoTokenRequest, PoTokenContext
+from dankert_download.utils.networking import HTTPHeaderDict
 
 
 class MockLogger(IEContentProviderLogger):

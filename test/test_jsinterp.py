@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import math
 
-from dankert_install.jsinterp import JS_Undefined, JSInterpreter, js_number_to_string
+from dankert_download.jsinterp import JS_Undefined, JSInterpreter, js_number_to_string
 
 
 class NaN:

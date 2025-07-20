@@ -24,10 +24,10 @@ from test.helper import (
     try_rm,
 )
 
-import dankert_install.YoutubeDL  # isort: split
-from dankert_install.extractor import get_info_extractor
-from dankert_install.networking.exceptions import HTTPError, TransportError
-from dankert_install.utils import (
+import dankert_download.YoutubeDL  # isort: split
+from dankert_download.extractor import get_info_extractor
+from dankert_download.networking.exceptions import HTTPError, TransportError
+from dankert_download.utils import (
     DownloadError,
     ExtractorError,
     UnavailableVideoError,
@@ -39,7 +39,7 @@ from dankert_install.utils import (
 RETRIES = 3
 
 
-class YoutubeDL(dankert_install.YoutubeDL):
+class YoutubeDL(dankert_download.YoutubeDL):
     def __init__(self, *args, **kwargs):
         self.to_stderr = self.to_screen
         self.processed_info_dicts = []
@@ -87,7 +87,7 @@ def generator(test_case, tname):
         if self.COMPLETED_TESTS.get(tname):
             return
         self.COMPLETED_TESTS[tname] = True
-        ie = dankert_install.extractor.get_info_extractor(test_case['name'])()
+        ie = dankert_download.extractor.get_info_extractor(test_case['name'])()
         other_ies = [get_info_extractor(ie_key)() for ie_key in test_case.get('add_ie', [])]
         is_playlist = any(k.startswith('playlist') for k in test_case)
         test_cases = test_case.get(

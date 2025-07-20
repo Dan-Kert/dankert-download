@@ -1,17 +1,17 @@
 import pytest
 
-from dankert_install.extractor.youtube.pot._provider import IEContentProvider, BuiltinIEContentProvider
-from dankert_install.extractor.youtube.pot.cache import CacheProviderWritePolicy
-from dankert_install.utils import bug_reports_message
-from dankert_install.extractor.youtube.pot.provider import (
+from dankert_download.extractor.youtube.pot._provider import IEContentProvider, BuiltinIEContentProvider
+from dankert_download.extractor.youtube.pot.cache import CacheProviderWritePolicy
+from dankert_download.utils import bug_reports_message
+from dankert_download.extractor.youtube.pot.provider import (
     PoTokenRequest,
     PoTokenContext,
 
 )
-from dankert_install.version import __version__
+from dankert_download.version import __version__
 
-from dankert_install.extractor.youtube.pot._builtin.webpo_cachespec import WebPoPCSP
-from dankert_install.extractor.youtube.pot._registry import _pot_pcs_providers
+from dankert_download.extractor.youtube.pot._builtin.webpo_cachespec import WebPoPCSP
+from dankert_download.extractor.youtube.pot._registry import _pot_pcs_providers
 
 
 @pytest.fixture()
